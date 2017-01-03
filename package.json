@@ -1,0 +1,19 @@
+{
+  "name": "basic_vdom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpgmartin/basic_vdom.git"
+  },
+  "author": "Tom Martin <tom@tpgmartin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tpgmartin/basic_vdom/issues"
+  },
+  "homepage": "https://github.com/tpgmartin/basic_vdom#readme"
+}
