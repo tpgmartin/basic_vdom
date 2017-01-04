@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
-import c from '../src/component'
+import c from '../../src/component'
 chai.use(sinonChai)
 
 describe('Component', () => {
