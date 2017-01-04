@@ -42,16 +42,32 @@ describe('Component', () => {
 
   })
 
-  describe('render', () => {
+  describe.only('render', () => {
 
     it('should return new DOM element', () => {
-      sinon.stub(document.prototype, 'createElement')
       const component = c('div')
       const element = component.render()
-      sinon.spy(c.prototype, 'render');
-      expect(element).to.be.an('object')
-      expect(c.prototype.render).to.have.been.calledOnce
-      expect(element).to.be.an.instanceof('Element');
+
+      expect(element).to.have.deep.property('tagName', 'DIV')
+      expect(element).to.have.deep.property('innerHTML', '')
+
+    })
+
+    it('should return new DOM element with attrubutes', () => {
+      assert.fail()
+    })
+
+    it('should return nested DOM elements', () => {
+      const component = c('div', { name: 'root' }, [
+        c('div', { name: 'outerChild' }, [
+          c('div', { name: 'innerChild' })
+        ])
+      ])
+      const element = component.render()
+
+      expect(element).to.have.deep.property('tagName', 'DIV')
+      expect(element).to.have.deep.property('innerHTML', '<div><div></div></div>')
+      expect(element).to.have.deep.property('children')
     })
 
   })

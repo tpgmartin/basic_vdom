@@ -11,5 +11,13 @@ export default function Component(tagName, props = {}, children = []) {
 }
 
 Component.prototype.render = function () {
-  return document.createElement(this.tagName)
+  let element = document.createElement(this.tagName)
+
+  if (this.children) {
+    this.children.map((child) => {
+      element.appendChild(child.render())
+    })
+  }
+
+  return element
 }
