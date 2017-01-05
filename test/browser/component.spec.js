@@ -42,25 +42,29 @@ describe('Component', () => {
 
   })
 
-  describe.only('render', () => {
+  describe('render', () => {
 
     it('should return new DOM element', () => {
       const component = c('div')
       const element = component.render()
 
       expect(element).to.have.deep.property('tagName', 'DIV')
-      expect(element).to.have.deep.property('innerHTML', '')
+      expect(element).to.have.deep.property('outerHTML', '<div></div>')
 
     })
 
     it('should return new DOM element with attrubutes', () => {
-      assert.fail()
+      const component = c('div', { name: 'root' })
+      const element = component.render()
+
+      expect(element).to.have.deep.property('tagName', 'DIV')
+      expect(element).to.have.deep.property('outerHTML', '<div name="root"></div>')
     })
 
     it('should return nested DOM elements', () => {
-      const component = c('div', { name: 'root' }, [
-        c('div', { name: 'outerChild' }, [
-          c('div', { name: 'innerChild' })
+      const component = c('div', {}, [
+        c('div', {}, [
+          c('div')
         ])
       ])
       const element = component.render()
