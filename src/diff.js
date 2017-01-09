@@ -1,3 +1,3 @@
-export default function Diff() {
-
+export default function Diff(oldTree, newTree) {
+  return newTree
 }
